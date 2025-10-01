@@ -1,0 +1,96 @@
+DEBUG - 2025-09-25 17:58:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-25 17:58:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-25 17:59:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-25 17:59:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-25 17:59:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-25 17:59:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-25 17:59:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-25 17:59:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-25 17:59:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-25 17:59:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-25 17:59:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-25 18:00:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-25 18:01:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-25 18:01:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-25 18:01:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-25 18:01:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-25 18:01:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-25 18:01:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-25 18:01:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-25 18:01:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-25 18:01:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-25 18:01:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-09-25 18:01:52 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?) ('REF-1758655599')' at line 3 in X:\htdocs\bjs_accounting_system\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 X:\htdocs\bjs_accounting_system\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*)...', 0)
+#1 X:\htdocs\bjs_accounting_system\vendor\codeigniter4\framework\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 X:\htdocs\bjs_accounting_system\vendor\codeigniter4\framework\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 X:\htdocs\bjs_accounting_system\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 X:\htdocs\bjs_accounting_system\app\Models\TransactionModel.php(94): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 X:\htdocs\bjs_accounting_system\app\Controllers\Transactions.php(161): App\Models\TransactionModel->canReverse('REF-1758655599')
+#6 X:\htdocs\bjs_accounting_system\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Transactions->reverse('REF-1758655599')
+#7 X:\htdocs\bjs_accounting_system\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Transactions))
+#8 X:\htdocs\bjs_accounting_system\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 X:\htdocs\bjs_accounting_system\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 X:\htdocs\bjs_accounting_system\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 X:\htdocs\bjs_accounting_system\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 X:\htdocs\bjs_accounting_system\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('X:\\htdocs\\bjs_a...')
+#13 {main}
+CRITICAL - 2025-09-25 18:01:53 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?) ('REF-1758655599')' at line 3
+[Method: GET, Route: transactions/reverse/REF-1758655599]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `journal`
+WHERE `reverses_transaction_id` IN (SELECT id FROM journal WHERE reference_id = ?) :reverses_transaction_id:', [...], false)
+ 2 APPPATH\Models\TransactionModel.php(94): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\Controllers\Transactions.php(161): App\Models\TransactionModel->canReverse('REF-1758655599')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Transactions->reverse('REF-1758655599')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Transactions))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('X:\\htdocs\\bjs_accounting_system\\public\\index.php')
+CRITICAL - 2025-09-25 18:01:53 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?) ('REF-1758655599')' at line 3
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `journal`
+WHERE `reverses_transaction_id` IN (SELECT id FROM journal WHERE reference_id = ?) (\'REF-1758655599\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `journal`
+WHERE `reverses_transaction_id` IN (SELECT id FROM journal WHERE reference_id = ?) (\'REF-1758655599\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `journal`
+WHERE `reverses_transaction_id` IN (SELECT id FROM journal WHERE reference_id = ?) :reverses_transaction_id:', [...], false)
+ 4 APPPATH\Models\TransactionModel.php(94): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 5 APPPATH\Controllers\Transactions.php(161): App\Models\TransactionModel->canReverse('REF-1758655599')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Transactions->reverse('REF-1758655599')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Transactions))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('X:\\htdocs\\bjs_accounting_system\\public\\index.php')
+CRITICAL - 2025-09-25 18:01:53 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?) ('REF-1758655599')' at line 3
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM `journal`
+WHERE `reverses_transaction_id` IN (SELECT id FROM journal WHERE reference_id = ?) (\'REF-1758655599\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `journal`
+WHERE `reverses_transaction_id` IN (SELECT id FROM journal WHERE reference_id = ?) (\'REF-1758655599\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `journal`
+WHERE `reverses_transaction_id` IN (SELECT id FROM journal WHERE reference_id = ?) (\'REF-1758655599\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `journal`
+WHERE `reverses_transaction_id` IN (SELECT id FROM journal WHERE reference_id = ?) :reverses_transaction_id:', [...], false)
+ 5 APPPATH\Models\TransactionModel.php(94): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 6 APPPATH\Controllers\Transactions.php(161): App\Models\TransactionModel->canReverse('REF-1758655599')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Transactions->reverse('REF-1758655599')
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Transactions))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('X:\\htdocs\\bjs_accounting_system\\public\\index.php')
